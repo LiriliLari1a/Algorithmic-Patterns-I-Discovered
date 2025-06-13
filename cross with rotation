@@ -20,7 +20,7 @@ def sort_loc(x1, y1, x2, y2, x3, y3, x4, y4):
 
 
 2. 선분이 교차하는지 검사하는 함수이다.
-   [a, b] 에서 두 선분의 y값을 비교하여 교차하면 True, 교차하지 않으면 False이다.  양, 음수만 판별하면 되므로 float 부정확성 개선을 위해 분모는 모두 소거했다.
+   [a, b] 에서 두 선분의 y값을 비교하여 교차하면 True, 교차하지 않으면 False이다.  양, 음수만 판별하면 되므로 float 계산 방지를 위해 분모는 모두 소거했다.
 ```python
 def calculation(x1, y1, x2, y2, x3, y3, x4, y4, a, b):
   if a > b:
@@ -43,7 +43,7 @@ def result(x1, y1, x2, y2, x3, y3, x4, y4):
 
 4. 이제 적당히 rotate 시킨 후 return 하면된다. 
    xDemo와 yDemo 는 기울기의 형태를 판별하기 위한 변수이고 두 선분이 모두 INF 일때와 두 선분의 기울기가 각각 INF와 0일때는 45도 회전,
-   한 선분만 기울기가 INF 이면 90도 회전시킨다.
+   한 선분만 기울기가 INF 이면 90도 회전시킨다. 45도 회전시킬때 상대적 위치를 계산하여 루트는 모두 소거한다.(float 계산방지)
 ```python
 xDemo_1, xDemo_2 = x2 - x1, x4 - x3
 yDemo_1, yDemo_2 = y2 - y1, y4 - y3
